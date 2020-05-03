@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isTapped: Bool = false
+    
     var body: some View {
-        Text("Hello, World!")
+        Card(tapped: self.isTapped)
+        .gesture(TapGesture(count: 1)
+            .onEnded({ () in
+                self.isTapped.toggle()
+            }))
     }
 }
 
